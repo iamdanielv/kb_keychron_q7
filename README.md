@@ -1,5 +1,7 @@
 # Keychron Q7 - 🚧 Custom QMK firmware
 
+![Keychron Q7](https://i.imgur.com/dMnFpx0h.jpg)
+
 ## ⚠️ Disclaimer
 > [!CAUTION]
 > This is a custom firmware that could break your keyboard.
