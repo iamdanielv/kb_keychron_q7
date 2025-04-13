@@ -106,7 +106,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     }
 
-    if (keycode == QK_LLCK){
+    if (keycode == QK_LLCK) {
         // when we lock or unlock a layer, flash the space bar area
         blink_space(true);
 
@@ -143,21 +143,21 @@ bool handle_backspace(keyrecord_t *record) {
     // shift + backspace is delete
     // both shift held is shift + delete
     static uint16_t registered_key = KC_NO;
-    if (record->event.pressed) {  // On key press.
+    if (record->event.pressed) { // On key press.
         const uint8_t mods = get_mods();
-        #ifndef NO_ACTION_ONESHOT
+#ifndef NO_ACTION_ONESHOT
         uint8_t shift_mods = (mods | get_oneshot_mods()) & MOD_MASK_SHIFT;
-        #else
-                uint8_t shift_mods = mods & MOD_MASK_SHIFT;
-        #endif  // NO_ACTION_ONESHOT
-        if (shift_mods) {  // At least one shift key is held.
+#else
+        uint8_t shift_mods = mods & MOD_MASK_SHIFT;
+#endif // NO_ACTION_ONESHOT
+        if (shift_mods) { // At least one shift key is held.
             registered_key = KC_DEL;
             // If one shift is held, clear it from the mods. But if both
             // shifts are held, leave as is to send Shift + Del.
             if (shift_mods != MOD_MASK_SHIFT) {
-            #ifndef NO_ACTION_ONESHOT
+#ifndef NO_ACTION_ONESHOT
                 del_oneshot_mods(MOD_MASK_SHIFT);
-            #endif  // NO_ACTION_ONESHOT
+#endif // NO_ACTION_ONESHOT
                 unregister_mods(MOD_MASK_SHIFT);
             }
         } else {
@@ -165,7 +165,7 @@ bool handle_backspace(keyrecord_t *record) {
         }
         register_code(registered_key);
         set_mods(mods);
-    } else {  // On key release.
+    } else {                     // On key release.
         wait_ms(TAP_CODE_DELAY); // wait a little bit, so programs don't filter the press
         unregister_code(registered_key);
     }
