@@ -31,7 +31,6 @@ enum layer_names {
 */
 // clang-format on
 
-
 // ***************
 // * Key Indexes *
 // ***************
