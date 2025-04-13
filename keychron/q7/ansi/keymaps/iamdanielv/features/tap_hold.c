@@ -81,11 +81,10 @@ static td_state_t td_state[] = {
  */
 td_state_t cur_dance(tap_dance_state_t *state) {
     if (state->count == 1) {
-        if (!state->pressed){
+        if (!state->pressed) {
             // key is not pressed, assume it is a tap, wether interrupted or not
             return TD_SINGLE_TAP;
-        }
-        else{
+        } else {
             // key is still held. Means you want to send a 'HOLD'.
             return TD_SINGLE_HOLD;
         }
@@ -128,20 +127,20 @@ void mo_caps_finished(tap_dance_state_t *state, void *user_data) {
 void mo_caps_reset(tap_dance_state_t *state, void *user_data) {
     switch (td_state[TD_MO_CAPS]) {
         case TD_SINGLE_HOLD:
-            if(!dv_is_layer_locked(EXT_LYR)) {
+            if (!dv_is_layer_locked(EXT_LYR)) {
                 // only turn off the layer if it hasn't been locked
                 layer_off(EXT_LYR);
             }
             break;
         case TD_DOUBLE_HOLD:
-            if(!dv_is_layer_locked(NUM_LYR)) {
+            if (!dv_is_layer_locked(NUM_LYR)) {
                 // only turn off the layer if it hasn't been locked
                 layer_off(NUM_LYR);
             }
             break;
         case TD_DOUBLE_TAP:
         case TD_DOUBLE_SINGLE_TAP: // dance was interrupted, handle it the same as if it was a double tap
-            //this was handled in the finished function, nothing to do here
+            // this was handled in the finished function, nothing to do here
             break;
         case TD_SINGLE_TAP:
         default:
@@ -224,7 +223,7 @@ void ralt_finished(tap_dance_state_t *state, void *user_data) {
 void ralt_reset(tap_dance_state_t *state, void *user_data) {
     switch (td_state[TD_RALT]) {
         case TD_SINGLE_HOLD:
-            if(!dv_is_layer_locked(MEDIA_LYR)) {
+            if (!dv_is_layer_locked(MEDIA_LYR)) {
                 // only turn off the layer if it hasn't been locked
                 layer_off(MEDIA_LYR);
             }
@@ -236,7 +235,7 @@ void ralt_reset(tap_dance_state_t *state, void *user_data) {
             break;
         case TD_DOUBLE_TAP:
         case TD_DOUBLE_SINGLE_TAP: // dance was interrupted, handle it the same as if it was a double tap
-            //this was handled in the finished function, nothing to do here
+            // this was handled in the finished function, nothing to do here
             break;
         default:
             // do nothing
