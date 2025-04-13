@@ -79,62 +79,62 @@
  * <https://getreuer.info/posts/keyboards/layer-lock>
  */
 
- #pragma once
+#pragma once
 
- #include "quantum.h"
+#include "quantum.h"
 
- #ifdef __cplusplus
- extern "C" {
- #endif
+#ifdef __cplusplus
+extern "C" {
+#endif
 
- /**
-  * Handler function for Layer Lock.
-  *
-  * In your keymap, define a custom keycode to use for Layer Lock. Then handle
-  * Layer Lock from your `process_record_user` function by calling
-  * `process_layer_lock`, passing your custom keycode for the `lock_keycode` arg:
-  *
-  *     #include "features/layer_lock.h"
-  *
-  *     bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-  *       if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
-  *       // Your macros ...
-  *
-  *       return true;
-  *     }
-  */
- bool dv_process_layer_lock(uint16_t keycode, keyrecord_t* record, uint16_t lock_keycode);
+/**
+ * Handler function for Layer Lock.
+ *
+ * In your keymap, define a custom keycode to use for Layer Lock. Then handle
+ * Layer Lock from your `process_record_user` function by calling
+ * `process_layer_lock`, passing your custom keycode for the `lock_keycode` arg:
+ *
+ *     #include "features/layer_lock.h"
+ *
+ *     bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+ *       if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
+ *       // Your macros ...
+ *
+ *       return true;
+ *     }
+ */
+bool dv_process_layer_lock(uint16_t keycode, keyrecord_t* record, uint16_t lock_keycode);
 
- /** Returns true if `layer` is currently locked. */
- bool dv_is_layer_locked(uint8_t layer);
+/** Returns true if `layer` is currently locked. */
+bool dv_is_layer_locked(uint8_t layer);
 
- /** Locks and turns on `layer`. */
- void dv_layer_lock_on(uint8_t layer);
+/** Locks and turns on `layer`. */
+void dv_layer_lock_on(uint8_t layer);
 
- /** Unlocks and turns off `layer`. */
- void dv_layer_lock_off(uint8_t layer);
+/** Unlocks and turns off `layer`. */
+void dv_layer_lock_off(uint8_t layer);
 
- /** Unlocks and turns off all locked layers. */
- void dv_layer_lock_all_off(void);
+/** Unlocks and turns off all locked layers. */
+void dv_layer_lock_all_off(void);
 
- /** Toggles whether `layer` is locked. */
- void dv_layer_lock_invert(uint8_t layer);
+/** Toggles whether `layer` is locked. */
+void dv_layer_lock_invert(uint8_t layer);
 
- /**
-  * Optional callback that gets called when a layer is locked or unlocked.
-  *
-  * This is useful to represent the current lock state, e.g. by setting an LED or
-  * playing a sound. In your keymap, define
-  *
-  *     void layer_lock_set_user(layer_state_t locked_layers) {
-  *       // Do something like `set_led(is_layer_locked(NAV));`
-  *     }
-  *
-  * @param locked_layers Bitfield in which the kth bit represents whether the
-  *                      kth layer is on.
-  */
- void dv_layer_lock_set_user(layer_state_t locked_layers);
+/**
+ * Optional callback that gets called when a layer is locked or unlocked.
+ *
+ * This is useful to represent the current lock state, e.g. by setting an LED or
+ * playing a sound. In your keymap, define
+ *
+ *     void layer_lock_set_user(layer_state_t locked_layers) {
+ *       // Do something like `set_led(is_layer_locked(NAV));`
+ *     }
+ *
+ * @param locked_layers Bitfield in which the kth bit represents whether the
+ *                      kth layer is on.
+ */
+void dv_layer_lock_set_user(layer_state_t locked_layers);
 
- #ifdef __cplusplus
- }
- #endif
+#ifdef __cplusplus
+}
+#endif
