@@ -23,11 +23,11 @@ enum layer_names {
     CAPS A    S    D    F    G    H    J    K    L    ;    '         ENT  HOME PGUP
     32   33   34   35   36   37   38   39   40   41   42   43        44   45   46
 
-    LSFT Z    X    C    V    B    N    M    ,    .    /        RSFT       UP   PGDN
-    47   48   49   50   51   52   53   54   55   56   57       58         59   60
+    LSFT Z    X    C    V    B    N    M    ,    .    /         RSFT      UP   PGDN
+    47   48   49   50   51   52   53   54   55   56   57        58        59   60
 
-    LCTL LG   LALT           SPC            RALT RCTL Fn1  fn2 LEFT       DOWN RGHT
-    61   62   63             64             65   66   67   68  69         70   71
+    LCTL LG   LALT           SPC            RALT RCTL Fn_1 Fn_2 LEFT      DOWN RGHT
+    61   62   63             64             65   66   67   68   69        70   71
 */
 // clang-format on
 
@@ -47,8 +47,8 @@ enum layer_names {
 #define LEFT_WIN_KI 62
 #define LEFT_ALT_KI 63
 #define SPACE_KI 64
-#define FN1_KI 67
-#define FN2_KI 68
+#define FN_1_KI 67
+#define FN_2_KI 68
 #define RIGHT_ALT_KI 65
 #define RIGHT_CTL_KI 66
 #define RIGHT_SFT_KI 58
@@ -102,18 +102,18 @@ enum layer_names {
 #define N0_KI 10
 
 // F Keys
-#define F1_KI  1
-#define F2_KI  2
-#define F3_KI  3
-#define F4_KI  4
-#define F5_KI  5
-#define F6_KI  6
-#define F7_KI  7
-#define F8_KI  8
-#define F9_KI  9
-#define F10_KI 10
-#define F11_KI 11
-#define F12_KI 12
+#define FN1_KI  1
+#define FN2_KI  2
+#define FN3_KI  3
+#define FN4_KI  4
+#define FN5_KI  5
+#define FN6_KI  6
+#define FN7_KI  7
+#define FN8_KI  8
+#define FN9_KI  9
+#define FN10_KI 10
+#define FN11_KI 11
+#define FN12_KI 12
 
 // symbols
 #define COMM_KI 55 // ,
